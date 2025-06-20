@@ -1,0 +1,54 @@
+#Calculadora simples <3
+
+#Utilizado para formatar os valores, converte se o número for inteiro e mantém se ele for decimal.
+def formatar_resultado(valor):
+    return int(valor) if valor.is_integer() else valor
+
+#Vamos começar criando um looping infinito, né mores?
+while True:
+    #Aqui vamos dar desmontrações de opções do usuário quanto as operações.
+    print("Kawaii Calculator")
+    print("1. Soma")
+    print("2. Subtração")
+    print("3. Multiplicação")
+    print("4. Divisão")
+    print("5. Sair") #Fazendo uma opção para que o usuário possa sair da aplicação.
+
+    #Aqui, caso o usuário digite a opção "5", iremos nos despedir e quebramos o looping.
+    opcao = input("Escolha um comando (1/2/3/4/5): ")
+    if opcao == '5':
+        print("Até mais, fofo(a)!")
+        break
+
+    #Se o usuário desejar seguir com as operações, essas são os comandos
+    if opcao in ('1', '2', '3', '4'):
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+
+            if opcao == '1':
+                resultado = num1 + num2
+                print(f"Resultado: {formatar_resultado(num1)} + {formatar_resultado(num2)} = {formatar_resultado(resultado)}")
+
+            elif opcao == '2':
+                resultado = num1 - num2
+                print(f"Resultado: {formatar_resultado(num1)} - {formatar_resultado(num2)} = {formatar_resultado(resultado)}")
+
+            elif opcao == '3':
+                resultado = num1 * num2
+                print (f"Resultado: {formatar_resultado(num1)} * {formatar_resultado(num2)} = {formatar_resultado(resultado)}")
+
+            elif opcao == '4': #Como é divisão, coloquei o 0 para não dar erro sem avisos.
+                if num2 == 0:
+                    print("Erro, fofo(a)! Divisão por 0 não rola!")
+                else:
+                    resultado = num1 / num2
+                    print(f"Resultado: {formatar_resultado(num1)} / {formatar_resultado(num2)} = {formatar_resultado(resultado)}")
+
+        #Comando para ser aceito apenas números, a fim de não dar erro sem avisos.
+        except ValueError:
+            print("Por favor, insira números válidos! Não esqueça de colocar ponto para números decimais.")
+
+    #Caso o usuário escolha uma opção que não está no programa (1/2/3/4/5)
+    else:
+        print("Opção inválida, fofo(a)!")
