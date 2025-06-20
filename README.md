@@ -45,4 +45,4 @@ Resultado: 50
 
 - O uso de verificação de erro simples
 
-- A utilização do "def" e do "While True"
+- A utilização do "def" e do "While True".
